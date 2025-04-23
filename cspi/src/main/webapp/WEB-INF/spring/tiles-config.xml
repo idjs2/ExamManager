@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+
+<tiles-definitions>
+    <!-- 공통 레이아웃 정의 -->
+    <definition name="tiles-layout" template="/WEB-INF/views/layout/defaultLayout.jsp">
+        <put-attribute name="header" value="/WEB-INF/views/common/header.jsp" />
+        <put-attribute name="sidebar" value="/WEB-INF/views/common/sidebar.jsp" />
+        <put-attribute name="footer" value="/WEB-INF/views/common/footer.jsp" />
+        <put-attribute name="body" value="" />
+        <put-attribute name="title" value="기본 타이틀" />
+    </definition>
+
+    <!-- /test/* 패턴 (1단계) -->
+    <definition name="test/*" extends="tiles-layout">
+        <put-attribute name="body" value="/WEB-INF/views/test/{1}.jsp" />
+        <put-attribute name="title" value="Test - {1}" /> 
+    </definition>
+
+    <!-- /test/*/* 패턴 (2단계) -->
+    <definition name="test/*/*" extends="tiles-layout">
+        <put-attribute name="body" value="/WEB-INF/views/test/{1}/{2}.jsp" />
+        <put-attribute name="title" value="Test - {1} / {2}" />
+    </definition>
+</tiles-definitions>
