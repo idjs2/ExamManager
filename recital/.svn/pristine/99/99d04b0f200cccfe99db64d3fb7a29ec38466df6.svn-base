@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.or.ddit.mapper.IAdminMemberMapper">
+
+	
+	<select id="searchProfessor" parameterType="String" resultType="professorVO">
+		select 
+			PRO_NO
+			, (select dept_name from department d where d.dept_No = p.dept_No) dept_name
+			, PRO_NAME, PRO_PHONE
+		from PROFESSOR p
+		where pro_name like '%'||#{proName}||'%'
+	</select>
+	
+	<select id="selectStuList" resultType="studentVO">
+		select stu_no, stu_name, stu_email, s.dept_no, stu_phone, com_det_m_no, d.dept_name, com_det_g_no
+		from student s, department d
+		where s.dept_no = d.dept_no
+	</select>
+	
+	<select id="stuDetail" resultType="studentVO">
+		select stu_no
+		     , stu_name
+		     , stu_email
+		     , s.dept_no
+		     , stu_phone
+		     , com_det_m_no
+		     , d.dept_name
+		     , com_det_g_no
+		     , stu_add1
+		     , stu_add2
+		     , stu_postcode
+		     , s.com_det_b_no
+		     , s.stu_account
+		     , s.stu_img
+		  from student s, department d
+		 where s.dept_no = d.dept_no
+		   and stu_no = #{stuNo}
+	</select>
+	
+	<!-- 재적상태 셀렉트바 -->
+	<select id="stuMList" resultType = "commonVO">
+		select COM_DET_NO, COM_NO, COM_DET_NAME
+          from COMMON_CODE_DETAIL
+         where com_no = 'M01'	
+	</select>
+	
+	<!-- 학생개인정보 업데이트 -->
+	<update id="stuUpdate" parameterType="studentVO">
+		update student
+		   set 
+			   stu_img = #{stuImg}
+			 , dept_no = #{deptNo}
+			 , stu_email = #{stuEmail}
+			 , stu_phone = #{stuPhone}
+			 , stu_postcode = #{stuPostcode}
+			 , stu_add1 = #{stuAdd1}
+			 , stu_add2 = #{stuAdd2}
+			 , com_det_b_no = #{comDetBNo}
+			 , com_det_m_no = #{comDetMNo}
+			 , stu_account = #{stuAccount}   
+	     where stu_no = #{stuNo}
+	</update>
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

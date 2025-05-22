@@ -1,0 +1,133 @@
+package kr.or.ddit.controller.admin;
+
+import java.util.List;
+import java.util.Map;
+
+import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import kr.or.ddit.service.admin.inter.IAdminCommonService;
+import kr.or.ddit.service.admin.inter.IAdminDepartmentService;
+import kr.or.ddit.service.admin.inter.IAdminMemberService;
+import kr.or.ddit.vo.CommonVO;
+import kr.or.ddit.vo.DepartmentVO;
+import kr.or.ddit.vo.ProfessorVO;
+import kr.or.ddit.vo.StudentVO;
+import lombok.extern.slf4j.Slf4j;
+
+@Controller
+@Slf4j
+@RequestMapping("/admin")
+public class AdminMemberController {
+
+	@Inject
+	private IAdminMemberService memService;
+	
+	@Inject
+	private IAdminDepartmentService deptService;
+	
+	@Inject
+	private IAdminCommonService commonService;
+	
+	@RequestMapping(value = "/searchProfessor.do", method = RequestMethod.POST)
+	public ResponseEntity<List<ProfessorVO>> searchProfessor(@RequestBody Map<String, String> map) {
+		log.info("searchProfessor()...!");
+		log.info("proName >> " + map.get("proName"));
+		
+		List<ProfessorVO> proList = memService.searchProfessor(map.get("proName"));
+		for(ProfessorVO p : proList) log.info("proList >> " + p.toString());
+		
+		return new ResponseEntity<List<ProfessorVO>>(proList, HttpStatus.OK);
+	}
+	
+	// 학생 정보 가져오기
+	@RequestMapping(value="/memberMain", method = RequestMethod.GET)
+	public String memberMain(Model model) {
+		
+		List<StudentVO> stuList =  memService.selectStuList();
+		
+		model.addAttribute("stuList", stuList);
+		return "admin/member/memberList";
+	}
+	
+	// 학생 정보 상세보기
+	@RequestMapping(value="/stuDetail", method = RequestMethod.GET)	
+	public String stuDetail(String stuNo, Model model) {
+		log.info("stuNo");
+		model.addAttribute("stuNo", stuNo);
+		
+		// 학생 정보
+		StudentVO stuVO = memService.stuDetail(stuNo);
+		model.addAttribute("stuVO", stuVO);
+		
+		// 건물 이름 리스트
+		List<DepartmentVO> deptList = deptService.getDeptNameList();
+		model.addAttribute("deptList", deptList);
+				
+		log.info("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@" + stuVO.getComDetMNo());
+		
+		// 재적 상태 리스트
+		List<CommonVO> codeName = memService.stuMList();		
+		model.addAttribute("stuMCode", codeName);
+		
+		// 은행 선택 리스트
+		List<CommonVO> bankList = commonService.getComDetailList("B01");
+		model.addAttribute("bankList", bankList);
+		
+		return "admin/member/stuDetail";
+	}
+	
+	// 학생 정보 업데이트
+	@RequestMapping(value="/stuUpdate", method = RequestMethod.POST)
+	public String update(StudentVO stuVO, Model model, RedirectAttributes ra, HttpServletRequest req) {
+		String goPage = "";		
+		log.info("@@@@@@@ stuVO @@@@@" + stuVO);
+		
+		int cnt = memService.stuUpdate(stuVO, req);
+		
+		if(cnt > 0 ) { // 업데이트 성공
+			ra.addFlashAttribute("msg", "수정에 성공했습니다.");
+			goPage = "redirect:/admin/stuDetail?stuNo="+stuVO.getStuNo();
+		}else {
+			goPage= "redirect:/admin/stuDetail?stuNo=" + stuVO.getStuNo();
+		}
+		
+		
+		return goPage;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
