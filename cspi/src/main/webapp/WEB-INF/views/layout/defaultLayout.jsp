@@ -33,14 +33,13 @@
 <body id="page-top">
 
 	<div id="wrapper">
-			<tiles:insertAttribute name="sidebar" />
+		<tiles:insertAttribute name="sidebar" />
 
 		<!-- Content Wrapper -->
 		<div id="content-wrapper" class="d-flex flex-column">
 			<!-- Main Content -->
 			<div id="content">
 					<tiles:insertAttribute name="header" />
-
 				<!-- Begin Page Content -->
 				<div class="container-fluid">
 					<tiles:insertAttribute name="body" />

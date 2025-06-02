@@ -6,12 +6,13 @@
 	<!-- Root Context: defines shared resources visible to all other web components -->
 	<!-- DataSource 설정 -->
 	<bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource" destroy-method="close">
-	    <property name="driverClassName" value="org.postgresql.Driver" />
-	    <property name="url" value="jdbc:postgresql://db.vzamkqsjcnyvypefisbc.supabase.co:5432/postgres?sslmode=require" />
-	    <property name="username" value="postgres" />
+    <property name="driverClassName" value="org.postgresql.Driver" />
+	    <!-- Supavisor Session Pooler 연결 문자열 -->
+	    <property name="url" value="jdbc:postgresql://aws-0-ap-northeast-2.pooler.supabase.com:5432/postgres?sslmode=require" />
+	    <!-- 사용자명: postgres.vzamkqsjcnyvypefisbc -->
+	    <property name="username" value="postgres.vzamkqsjcnyvypefisbc" />
 	    <property name="password" value="cspi1234!acroom11!" />
 	</bean>
-	
 	<!-- 데이터베이스와 연결을 맺고 끊어질 때까지의 
 	라이프 사이클을 관리해주는 sqlSession 객체를 생성
 	1) dataSource

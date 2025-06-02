@@ -16,6 +16,9 @@
 	<typeAliases>
 		<typeAlias type="kr.or.ddit.vo.ExamVO" alias="examVO" />
 	</typeAliases> -->
+	<typeAliases>
+		<typeAlias type="kr.or.cspi.vo.MemberVO" alias="memberVO"/>
+	</typeAliases>
 </configuration>
 
 

@@ -28,7 +28,7 @@ public class HomeController {
 	public String test1() {
 		
 		
-		return "test/test1";
+		return "test/main";
 	}
 	
 	@RequestMapping(value = "/test/board.do")
