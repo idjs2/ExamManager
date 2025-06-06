@@ -1,3 +1,5 @@
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
@@ -30,13 +32,13 @@
             <li class="nav-item active">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-fw fa-cog"></i>
-                    <span>TEST DO</span>
+                    <span>시험응시</span>
                 </a>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Custom Components:</h6>
-                        <a class="collapse-item" href="buttons.html">Team</a>
-                        <a class="collapse-item" href="cards.html">Certif</a>
+                        <a class="collapse-item" href="buttons.html">팀시험</a>
+                        <a class="collapse-item" href="cards.html">자격시험</a>
                     </div>
                 </div>
             </li>
@@ -45,14 +47,14 @@
             <li class="nav-item active">
                 <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
                     <i class="fas fa-fw fa-wrench"></i>
-                    <span>MY TEST</span>
+                    <span>내 시험</span>
                 </a>
                 <div id="collapseUtilities" class="collapse show" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Custom Utilities:</h6>
-                        <a class="collapse-item" href="utilities-color.html">Test History</a>
-                        <a class="collapse-item active" href="utilities-border.html">Incorrect Note</a>
-                        <a class="collapse-item" href="utilities-animation.html">Community</a>
+                        <a class="collapse-item" href="utilities-color.html">시험이력</a>
+                        <a class="collapse-item active" href="utilities-border.html">오답노트</a>
+                        <a class="collapse-item" href="utilities-animation.html">게시판</a>
                     </div>
                 </div>
             </li>
@@ -61,13 +63,13 @@
             <li class="nav-item active">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
                     <i class="fas fa-fw fa-cog"></i>
-                    <span>TEST MANAGER</span>
+                    <span>시험관리</span>
                 </a>
                 <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Custom Components:</h6>
-                        <a class="collapse-item" href="buttons.html">Team</a>
-                        <a class="collapse-item" href="cards.html">Certif</a>
+                        <a class="collapse-item" href="buttons.html">팀시험</a>
+                        <a class="collapse-item" href="cards.html">자격시험</a>
                     </div>
                 </div>
             </li>
@@ -76,12 +78,12 @@
             <li class="nav-item active">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseFour" aria-expanded="true" aria-controls="collapseFour">
                     <i class="fas fa-fw fa-cog"></i>
-                    <span>MEMBER</span>
+                    <span>회원관리</span>
                 </a>
                 <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Custom Components:</h6>
-                        <a class="collapse-item" href="buttons.html">Team</a>
+                        <a class="collapse-item" href="buttons.html">팀명</a>
                     </div>
                 </div>
             </li>
