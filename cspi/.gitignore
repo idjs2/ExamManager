@@ -1,0 +1,20 @@
+# Eclipse
+Servers/
+.settings/
+.project
+.classpath
+
+# Build files
+target/
+*.class
+*.jar
+
+# Logs
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+src/main/webapp/META-INF/maven/**/pom.properties
+src/main/webapp/META-INF/MANIFEST.MF
