@@ -38,4 +38,9 @@ public class HomeController {
 		return "test/board/board";
 	}
 	
+	@RequestMapping(value = "/home.do")
+	public String test3() {
+		return "home";
+	}
+	
 }

@@ -24,7 +24,8 @@
 		<property name="mapperLocations"
 		value="classpath:/sqlmap/**/*_SQL.xml" />
 		<property name="configLocation"
-		 value="/WEB-INF/mybatisAlias/mybatisAlias.xml" />
+		 value="WEB-INF/mybatisAlias/mybatisAlias.xml" />
+		<!-- value="/WEB-INF/mybatisAlias/mybatisAlias.xml" /> -->
 	</bean>
 	
 	<!-- 데이터베이스에 개별적으로 쿼리를 실행시키는 객체.

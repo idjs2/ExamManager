@@ -19,33 +19,34 @@ public class LoginController {
 	@Inject
 	private UserService userService;
 
-    // ·Î±×ÀÎ Æû
+    // ë¡œê·¸ì¸ í¼
     @GetMapping("/loginForm.do")
     public String loginForm() {
         return "test/login";  // /WEB-INF/views/test/login.jsp
     }
 
-    // ·Î±×ÀÎ Ã³¸®
+    // ë¡œê·¸ì¸ ì²˜ë¦¬
     @PostMapping("/loginProc.do")
-    public String login(@RequestParam String mem_id,
-                        @RequestParam String mem_pw,
+    public String login(@RequestParam String memId,
+                        @RequestParam String memPw,
                         HttpSession session,
                         Model model) {
-        System.out.println("ÀÔ·ÂµÈ ID: " + mem_id);
-        System.out.println("ÀÔ·ÂµÈ PW: " + mem_pw);
+        System.out.println("ì…ë ¥ëœ ID: " + memId);
+        System.out.println("ì…ë ¥ëœ PW: " + memPw);
 
-        UserVO user = userService.authenticate(mem_id, mem_pw);  // ¾ê°¡ °è¼Ó null°ªÀ» º¸³½´Ù?
-
+        UserVO user = userService.authenticate(memId, memPw);  // ì–˜ê°€ ê³„ì† nullê°’ì„ ë³´ë‚¸ë‹¤?
+        System.out.println("ì¿¼ë¦¬ ê²°ê³¼ User: " + user); // nullì´ë©´ ì¿¼ë¦¬ ê²°ê³¼ ì—†ìŒ
+        
         if (user != null) {
             session.setAttribute("user", user);
-            return "redirect:/home/home.do";  // home ÆäÀÌÁö URL ¿¹½Ã
+            return "redirect:/home.do";  // home í˜ì´ì§€ URL ì˜ˆì‹œ
         } else {
-            model.addAttribute("error", "¾ÆÀÌµğ ¶Ç´Â ºñ¹Ğ¹øÈ£°¡ ÀÏÄ¡ÇÏÁö ¾Ê½À´Ï´Ù.");
-            return "test/login";  // ·Î±×ÀÎ ½ÇÆĞ ½Ã ´Ù½Ã ·Î±×ÀÎ ÆäÀÌÁö
+            model.addAttribute("error", "ì•„ì´ë”” ë˜ëŠ” ë¹„ë°€ë²ˆí˜¸ê°€ ì¼ì¹˜í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤.");
+            return "test/login";  // ë¡œê·¸ì¸ ì‹¤íŒ¨ ì‹œ ë‹¤ì‹œ ë¡œê·¸ì¸ í˜ì´ì§€
         }
     }
 
-    // ·Î±×¾Æ¿ô
+    // ë¡œê·¸ì•„ì›ƒ
     @GetMapping("/logout.do")
     public String logout(HttpSession session) {
         session.invalidate();
