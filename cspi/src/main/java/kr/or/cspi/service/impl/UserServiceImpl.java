@@ -17,7 +17,7 @@ public class UserServiceImpl implements UserService {
     private UserMapper userMapper;
 
     @Override
-    public UserVO authenticate(String mem_id, String mem_pw) {
-        return userMapper.authenticate(mem_id, mem_pw);
+    public UserVO authenticate(String memId, String memPw) {
+        return userMapper.authenticate(memId, memPw);
     }
 }

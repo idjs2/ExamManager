@@ -9,7 +9,7 @@ import org.apache.ibatis.annotations.Param;
 @Mapper
 public interface UserMapper {
 
-	UserVO authenticate(@Param("mem_id") String mem_id,
-			@Param("mem_pw") String mem_pw);
+	UserVO authenticate(@Param("memId") String memId,
+			@Param("memPw") String memPw);
 
 }
