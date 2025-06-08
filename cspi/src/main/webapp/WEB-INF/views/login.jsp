@@ -11,11 +11,11 @@
     </c:if>
 
     <form action="${pageContext.request.contextPath}/login/loginProc.do" method="post">
-        <label for="mem_id">아이디:</label>
-        <input type="text" id="mem_id" name="mem_id" required /><br><br>
-
-        <label for="mem_pw">비밀번호:</label>
-        <input type="password" id="mem_pw" name="mem_pw" required /><br><br>
+        <label for="memId">아이디:</label>
+        <!-- <input type="text" id="memId" name="memId" required /><br><br> -->
+		<input type="text" name="memId" value="${lastLoginId}" placeholder="아이디"><br><br>
+        <label for="memPw">비밀번호:</label>
+        <input type="password" id="memPw" name="memPw" required /><br><br>
 
         <button type="submit">로그인</button>
     </form>

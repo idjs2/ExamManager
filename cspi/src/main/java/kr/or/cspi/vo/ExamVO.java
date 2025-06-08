@@ -6,5 +6,4 @@ import lombok.Data;
 public class ExamVO {
 	private String examNo;
 	private String examSep;
-
 }
