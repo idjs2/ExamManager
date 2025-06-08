@@ -3,7 +3,7 @@
 
 <mapper namespace="kr.or.cspi.mapper.ExamMapper">
 
-	<select id="selectExamList" resultType="examVO">
+	<select id="selectExamList" resultType="cspiExamVO">
 		select *
 		from cspi_exam
 	</select>

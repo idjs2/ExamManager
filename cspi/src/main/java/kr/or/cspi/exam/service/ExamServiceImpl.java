@@ -7,6 +7,7 @@ import javax.inject.Inject;
 import org.springframework.stereotype.Service;
 
 import kr.or.cspi.mapper.ExamMapper;
+import kr.or.cspi.vo.CspiExamVO;
 import kr.or.cspi.vo.ExamVO;
 
 @Service
@@ -16,7 +17,7 @@ public class ExamServiceImpl implements ExamService {
 	private ExamMapper examMapper;
 	
 	@Override
-	public List<ExamVO> selectExamList() {
+	public List<CspiExamVO> selectExamList() {
 		return examMapper.selectExamList();
 	}
 

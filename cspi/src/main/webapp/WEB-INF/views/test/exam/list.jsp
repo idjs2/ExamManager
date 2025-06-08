@@ -10,7 +10,7 @@
             <th>이름</th>
             <th>번호</th>
         </tr>
-        <c:forEach items="${examList}" var="examList">
+        <c:forEach items="${cspiExamList}" var="examList">
             <tr>
                 <td>${examList.ceId}</td>
                 <td>${examList.examNo}</td>
