@@ -19,6 +19,7 @@ public class MemberController {
 	@Inject
 	private IMemberService memberService;
 
+	//슈퍼베이스 연동 확인용
 	@GetMapping("/memberList.do")
 	public String selectMemberList(Model model, MemberVO memberVO) {
 

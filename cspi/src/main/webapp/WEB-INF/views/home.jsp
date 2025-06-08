@@ -42,7 +42,7 @@
 					<i class="fas fa-laugh-wink"></i>
 				</div>
 				<div class="sidebar-brand-text mx-3">
-					CSPI <sup>2</sup>
+					SB Admin <sup>2</sup>
 				</div>
 			</a>
 

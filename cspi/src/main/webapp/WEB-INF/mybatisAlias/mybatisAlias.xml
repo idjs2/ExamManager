@@ -18,6 +18,13 @@
 	</typeAliases> -->
 	<typeAliases>
 		<typeAlias type="kr.or.cspi.vo.MemberVO" alias="memberVO"/>
+		<typeAlias type="kr.or.cspi.vo.AnswerSelectVO" alias="answerSelectVO"/>
+		<typeAlias type="kr.or.cspi.vo.CspiExamVO" alias="cspiExamVO"/>
+		<typeAlias type="kr.or.cspi.vo.ExamVO" alias="examVO"/>
+		<typeAlias type="kr.or.cspi.vo.QuestionVO" alias="questionVO"/>
+		<typeAlias type="kr.or.cspi.vo.ScoreVO" alias="scoreVO"/>
+		<typeAlias type="kr.or.cspi.vo.SolutionVO" alias="solutionVO"/>
+		<typeAlias type="kr.or.cspi.vo.SubmitVO" alias="submitVO"/>
 	</typeAliases>
 </configuration>
 
