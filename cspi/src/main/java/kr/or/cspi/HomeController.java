@@ -40,7 +40,7 @@ public class HomeController {
 	
 	@RequestMapping(value = "/home.do")
 	public String test3() {
-		return "home";
+		return "test/home";
 	}
 	
 }

@@ -12,8 +12,8 @@
 
     <form action="${pageContext.request.contextPath}/login/loginProc.do" method="post">
         <label for="memId">아이디:</label>
-        <input type="text" id="memId" name="memId" required /><br><br>
-
+        <!-- <input type="text" id="memId" name="memId" required /><br><br> -->
+		<input type="text" name="memId" value="${lastLoginId}" placeholder="아이디"><br><br>
         <label for="memPw">비밀번호:</label>
         <input type="password" id="memPw" name="memPw" required /><br><br>
 
