@@ -19,6 +19,7 @@
 	<typeAliases>
 		<typeAlias type="kr.or.cspi.vo.MemberVO" alias="memberVO"/>
 		<typeAlias type="kr.or.cspi.vo.UserVO" alias="userVO"/>
+		<typeAlias type="kr.or.cspi.vo.ExamVO" alias="examVO"/>
 	</typeAliases>
 </configuration>
 
