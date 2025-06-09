@@ -16,5 +16,5 @@ target/
 .DS_Store
 Thumbs.db
 
-src/main/webapp/META-INF/maven/**/pom.properties
-src/main/webapp/META-INF/MANIFEST.MF
+**/MANIFEST.MF
+**/pom.properties
