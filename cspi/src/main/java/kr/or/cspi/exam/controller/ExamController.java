@@ -24,4 +24,9 @@ public class ExamController {
 		model.addAttribute("cspiExamList",cspiExamList);
 		return "test/exam/list";
 	}
+	
+	@RequestMapping("/cspiExam.do")
+	public String selectExam(Model model) {
+		return "test/exam/exam";
+	}
 }
