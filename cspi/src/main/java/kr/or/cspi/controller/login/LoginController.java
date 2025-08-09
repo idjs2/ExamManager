@@ -13,7 +13,9 @@ import org.springframework.web.bind.annotation.*;
 
 import kr.or.cspi.service.inter.UserService;
 import kr.or.cspi.vo.UserVO;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 @RequestMapping("/login")
 @Controller
 public class LoginController {
@@ -42,7 +44,7 @@ public class LoginController {
         
         if (user != null) {
             session.setAttribute("user", user);
-            
+            log.info("현재 로그인한 사용자 정보: {}", user);
             // 쿠키에 최근 로그인 ID 저장 (유효기간: 7일)
             Cookie idCookie = new Cookie("lastLoginId", memId);
             idCookie.setPath("/"); // 모든 경로에서 유효
