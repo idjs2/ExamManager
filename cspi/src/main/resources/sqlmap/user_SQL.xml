@@ -3,7 +3,7 @@
 
 <mapper namespace="kr.or.cspi.mapper.UserMapper">
     <select id="authenticate" resultType="userVO">
-        SELECT mem_id, mem_pw
+        SELECT *
         FROM member
         WHERE mem_id = #{memId}
         AND mem_pw = #{memPw}
