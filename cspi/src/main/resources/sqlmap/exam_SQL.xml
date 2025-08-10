@@ -2,10 +2,37 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="kr.or.cspi.mapper.ExamMapper">
-
-	<select id="selectExamList" resultType="cspiExamVO">
-		select *
+	<!-- examNo 에 따라 필터링된 글 갯수를 가져옴 -->
+	<select id="selectExamListCount" resultType="int">
+		select count(*)
 		from cspi_exam
+		where exam_no = #{examNo}
+	</select>
+	<!-- 시험 목록 (페이징) -->
+	<select id="selectExamList" resultType="cspiExamVO">
+		select
+			b.*
+		from(
+			select 
+				a.*, row_number() over (order by a.ce_id desc) rnum
+			from(
+				select 
+                    ce_id,
+					exam_no,
+					ce_name,
+					ce_exp,
+					ce_year,
+					ce_round,
+					ce_date,
+					file_group_no
+                from cspi_exam                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   
+                where exam_no=#{examNo}
+				order by ce_id desc
+			) a
+		) b
+		<![CDATA[
+			where b.rnum >= #{startRow} and b.rnum <= #{endRow}
+		]]>
 	</select>
 
 </mapper>
