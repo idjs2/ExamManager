@@ -12,5 +12,7 @@ public class CspiExamVO {
 	private int ceRound;
 	private String ceDate;
 	private String fileGroupNo;
+	
+	private int rnum; //페이징 처리를 위해 추가
 
 }

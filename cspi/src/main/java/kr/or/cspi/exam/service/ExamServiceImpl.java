@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import kr.or.cspi.mapper.ExamMapper;
 import kr.or.cspi.vo.CspiExamVO;
 import kr.or.cspi.vo.ExamVO;
+import kr.or.cspi.vo.PaginationInfoVO;
 
 @Service
 public class ExamServiceImpl implements ExamService {
@@ -17,8 +18,15 @@ public class ExamServiceImpl implements ExamService {
 	private ExamMapper examMapper;
 	
 	@Override
-	public List<CspiExamVO> selectExamList() {
-		return examMapper.selectExamList();
+	public int selectExamListCount(PaginationInfoVO<CspiExamVO> pagingVO) {
+		// TODO Auto-generated method stub
+		return examMapper.selectExamListCount(pagingVO);
 	}
+	
+	@Override
+	public List<CspiExamVO> selectExamList(PaginationInfoVO<CspiExamVO> pagingVO) {
+		return examMapper.selectExamList(pagingVO);
+	}
+
 
 }

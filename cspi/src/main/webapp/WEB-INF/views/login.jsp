@@ -1,7 +1,64 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<!-- <meta charset="UTF-8"> -->
+<title>로그인</title>
 <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .loginBox {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 15px rgba(0,0,0,0.1);
+            width: 320px;
+        }
+        .loginBox h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .loginBox label {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+            font-size: 14px;
+        }
+        .loginBox input[type="text"],
+        .loginBox input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 14px;
+        }
+        .loginBox button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 20px;
+            background: #2196F3;
+            border: none;
+            color: white;
+            font-size: 15px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+        .loginBox button:hover {
+            background: #1976D2;
+        }
+        .error-message {
+            color: red;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
     /* 모달 기본 스타일 */
     .modal {
         display: none;
@@ -45,7 +102,7 @@
 <!-- jQuery 포함 -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	
-<div class="container-fluid">
+<div class="loginBox">
     <h2>로그인</h2>
 
     <!-- 로그인 실패 시 메시지 출력 -->
@@ -266,3 +323,4 @@
    	});
     
 </script>
+

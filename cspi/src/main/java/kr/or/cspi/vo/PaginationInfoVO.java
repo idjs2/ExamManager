@@ -21,8 +21,7 @@ import lombok.extern.slf4j.Slf4j;
 	private String searchWord;		// 검색 단어	
 	
 	//--------------------------------------------------------------------------------
-	private String lecNo;					// 강의번호
-	private String assNo;					// 과제번호
+	private String examNo;					// 시험목록번호 - 시험 번호에 따라서 필터링 해주기위해 
 	//--------------------------------------------------------------------------------
 	
 	public PaginationInfoVO() { }
