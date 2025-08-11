@@ -27,7 +27,7 @@
 		<typeAlias type="kr.or.cspi.vo.SubmitVO" alias="submitVO"/>
 		<typeAlias type="kr.or.cspi.vo.UserVO" alias="userVO"/>
 		<typeAlias type="kr.or.cspi.vo.ExamVO" alias="examVO"/>
-		<typeAlias type="kr.or.cspi.vo.PwdResetVO" alias="pwdresetVO"/>
+		<typeAlias type="kr.or.cspi.vo.PwdChangeVO" alias="pwdchangeVO"/>
 		<typeAlias type="kr.or.cspi.vo.PositionVO" alias="positionVO"/>
 		<typeAlias type="kr.or.cspi.vo.DepartmentVO" alias="departmentVO"/>
 	</typeAliases>

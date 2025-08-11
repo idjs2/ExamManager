@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="kr.or.cspi.mapper.PwdResetMapper">
+<mapper namespace="kr.or.cspi.mapper.PwdChangeMapper">
      <!-- 임시 비밀번호로 업데이트 -->
-    <update id="PwdReset" parameterType="pwdresetVO">
+    <update id="PwdChange" parameterType="pwdchangeVO">
         UPDATE member
-        SET mem_pw = #{memPw}
+        SET mem_pw = #{newPw}
         WHERE mem_id = #{memId}
     </update>
     
@@ -16,8 +16,6 @@
         FROM member 
         WHERE mem_id = #{memId}
         	AND mem_name = #{memName}
-        	AND pos_no = #{posNo}
-        	AND dep_no = #{depNo}
     </select>
     
 </mapper>

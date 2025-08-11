@@ -122,8 +122,8 @@
 
     <!-- 회원가입 버튼 -->
     <button id="openSignupBtn">회원가입</button>
-    <!-- 비밀번호 초기화 버튼 -->
-    <button id="openPwdResetBtn">비밀번호 초기화</button>
+    <!-- 비밀번호 변경 버튼 -->
+    <button id="openPwdResetBtn">비밀번호 변경</button>
 </div>
 	
 <!-- 회원가입 모달 -->
@@ -175,31 +175,35 @@
     </div>
 </div>
 
-<!-- 비밀번호 초기화 모달 -->
-<div id="pwdresetModal" class="modal">
+<!-- 비밀번호 변경 모달 -->
+<div id="pwdchangeModal" class="modal">
     <div class="modal-content">
-        <span class="modal-close" id="closePwdResetBtn">&times;</span>
-        <h3>비밀번호 초기화</h3>
+        <span class="modal-close" id="closePwdchangeBtn">&times;</span>
+        <h3>비밀번호 변경</h3>
 
-        <form id="pwdresetForm">
+        <form id="pwdchangeForm">
             <div class="form-group">
-                <label for="pwdresetMemId">아이디</label>
-                <input type="text" id="pwdresetMemId" name="memId" required>
+                <label for="pwdchangeMemId">아이디</label>
+                <input type="text" id="pwdchangeMemId" name="memId" required>
             </div>
             <div class="form-group">
-                <label for="pwdresetMemName">이름</label>
-                <input type="text" id="pwdresetMemName" name="memName" required>
+                <label for="pwdchangeMemName">이름</label>
+                <input type="text" id="pwdchangeMemName" name="memName" required>
             </div>
 <!--             <div class="form-group">
-                <label for="pwdresetPosNo">직책 번호</label>
-                <input type="text" id="pwdresetPosNo" name="posNo" required>
+                <label for="pwdchangePosNo">직책 번호</label>
+                <input type="text" id="pwdchangePosNo" name="posNo" required>
             </div>
             <div class="form-group">
-                <label for="pwdresetDepNo">부서 번호</label>
-                <input type="text" id="pwdresetDepNo" name="depNo" required>
+                <label for="pwdchangeDepNo">부서 번호</label>
+                <input type="text" id="pwdchangeDepNo" name="depNo" required>
             </div> -->
+            <div class="form-group">
+                <label for="pwdchangeNewPw">새 비밀번호</label>
+                <input type="text" id="pwdchangeNewPw" name="NewPw" required>
+            </div>
 
-            <button type="submit">초기화</button>
+            <button type="submit">변경</button>
         </form>
     </div>
 </div>
@@ -247,41 +251,40 @@
     
     
     
- 	// 비밀번호 초기화 모달
-    $('#openPwdResetBtn').on('click', function() {  // 모달 열기
-        $('#pwdresetModal').fadeIn();
+ 	// 비밀번호 변경 모달
+    $('#openPwdchangeBtn').on('click', function() {  // 모달 열기
+        $('#pwdchangeModal').fadeIn();
     });
 
-    $('#closePwdResetBtn').on('click', function() {  // 모달 닫기
-        $('#pwdresetModal').fadeOut();
+    $('#closePwdchangeBtn').on('click', function() {  // 모달 닫기
+        $('#pwdchangeModal').fadeOut();
     });
     
-    $('#pwdresetForm').on('submit', function(e) {  // 초기화 정보 제출
+    $('#pwdchangeForm').on('submit', function(e) {  // 변경 정보 제출
         e.preventDefault();
     
-        const pwdresetData = {
-                memId: $('#pwdresetMemId').val(),
-                memName: $('#pwdresetMemName').val(),
-                posNo: $('#pwdresetPos').val(),
-                depNo: $('#pwdresetDep').val()
+        const pwdchangeData = {
+                memId: $('#pwdchangeMemId').val(),
+                memName: $('#pwdchangeMemName').val(),
+                newPw: $('#pwdchangeNewPw').val()
             };
 
             $.ajax({
-                url: '${pageContext.request.contextPath}/pwdreset',
+                url: '${pageContext.request.contextPath}/pwdchange',
                 method: 'POST',
                 contentType: 'application/json',
-                data: JSON.stringify(pwdresetData),
+                data: JSON.stringify(pwdchangeData),
                 success: function(response) {
                     if (response === 'OK') {
-                        alert('회원가입 성공!');
-                        $('#pwdresetModal').fadeOut();
-                        $('#pwdresetForm')[0].reset();
+                        alert('비밀번호 변경!');
+                        $('#pwdchangeModal').fadeOut();
+                        $('#pwdchangeForm')[0].reset();
                     } else {
-                        alert('이미 사용 중인 아이디입니다.');
+                        alert('현재 비밀번호와 동일합니다.');
                     }
                 },
                 error: function() {
-                    alert('회원가입 실패!');
+                    alert('변경 실패!');
                 }
             });
         });
