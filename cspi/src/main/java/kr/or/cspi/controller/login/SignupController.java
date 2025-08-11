@@ -13,6 +13,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import kr.or.cspi.service.inter.SignupService;
 import kr.or.cspi.vo.SignupVO;
+import kr.or.cspi.vo.PositionVO;
+import kr.or.cspi.vo.DepartmentVO;
 
 @RequestMapping("/signup")
 @RestController
@@ -30,5 +32,15 @@ public class SignupController {
     public boolean checkId(@RequestParam String memId) {
         return signupService.isIdAvailable(memId);
     }
+    
+    @GetMapping("/positions")
+    public List<PositionVO> getPositions() {
+    	return signupService.getPositions();
+    }
 
+    @GetMapping("/departments")
+    public List<DepartmentVO> getDepartments() {
+    	return signupService.getDepartments();
+    }
+    
 }

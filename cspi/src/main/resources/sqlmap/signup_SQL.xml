@@ -4,13 +4,31 @@
 <mapper namespace="kr.or.cspi.mapper.SignupMapper">
     <!-- 회원가입 -->
     <insert id="insertMember" parameterType="signupVO">
-        INSERT INTO member (mem_id, mem_pw, mem_name, pos_no, dep_no)
-        VALUES (#{memId}, #{memPw}, #{memName}, #{posNo}, #{depNo})
+        INSERT INTO member (mem_id, mem_pw, mem_name, pos_no, dep_no, admin_auth)
+        VALUES (#{memId}, #{memPw}, #{memName}, #{posNo}, #{depNo}, #{adminAuth})
     </insert>
 
     <!-- 아이디 중복 체크 -->
     <select id="countById" parameterType="String" resultType="int">
         SELECT COUNT(*) FROM member WHERE mem_id = #{memId}
+    </select>
+    
+    <!-- 직급 드롭다운 -->
+    <select id="getPositions" resultType="positionVO">
+    	SELECT
+    		pos_no AS posNo, 
+    		pos_name AS posName
+    	FROM position
+    	ORDER BY pos_no
+    </select>
+    
+    <!-- 부서 드롭다운 -->
+    <select id="getDepartments" resultType="departmentVO">
+    	SELECT
+    		dep_no AS depNo,
+    		dep_name AS depName
+    	FROM department
+    	ORDER BY dep_no
     </select>
     
 </mapper>

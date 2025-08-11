@@ -10,6 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import kr.or.cspi.mapper.SignupMapper;
 import kr.or.cspi.service.inter.SignupService;
 import kr.or.cspi.vo.SignupVO;
+import kr.or.cspi.vo.PositionVO;
+import kr.or.cspi.vo.DepartmentVO;
 
 @Service
 public class SignupServiceImpl implements SignupService {
@@ -29,5 +31,15 @@ public class SignupServiceImpl implements SignupService {
     @Override
     public boolean isIdAvailable(String memId) {
         return signupMapper.countById(memId) == 0;
+    }
+
+    @Override
+    public List<PositionVO> getPositions() {
+    	return  signupMapper.getPositions();
+    }
+
+    @Override
+    public List<DepartmentVO> getDepartments() {
+    	return  signupMapper.getDepartments();
     }
 }
