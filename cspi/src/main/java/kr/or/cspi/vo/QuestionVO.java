@@ -9,8 +9,8 @@ public class QuestionVO {
 	private String queSub;
 	private String queExp;
 	private String queFile;
-	private String queScore;
+	private Integer queScore;
 	private String queAnswer;
 	private String fileGroupNo;
-
+	private String optionType;
 }

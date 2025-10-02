@@ -2,6 +2,7 @@ import fitz  # PyMuPDF
 import re
 import json
 import os
+import hashlib  # hash / java에서 한글을 잘 못 읽어서 변환 작업
 from pathlib import Path
 from typing import List, Dict, Any
 
@@ -25,12 +26,16 @@ class InformationProcessingExamParser:
         
         # PDF 파일 이름을 기반으로 출력 폴더 생성
         self.pdf_name = Path(pdf_path).stem  # 확장자 제외한 파일명
-        self.output_dir = Path(f"output/output_{self.pdf_name}")
-        self.output_dir.mkdir(exist_ok=True)
+        self.base_output_dir = Path(os.environ.get("PYTHON_OUTPUT_DIR", Path(pdf_path).parent.parent.parent.parent / "output"))
+        
+        self.hash_name = hashlib.md5(self.pdf_name.encode("utf-8")).hexdigest()[:8]
+        self.output_dir = self.base_output_dir / f"output_{self.hash_name}"
+        # self.output_dir = self.base_output_dir / f"output_{self.pdf_name}"
+        self.output_dir.mkdir(parents=True, exist_ok=True)
         
         # 하위 폴더들 생성
         self.images_dir = self.output_dir / "extracted_images"
-        self.images_dir.mkdir(exist_ok=True)
+        self.images_dir.mkdir(parents=True, exist_ok=True)
         
         print(f"📁 출력 폴더 생성: {self.output_dir}")
         print(f"📁 이미지 폴더 생성: {self.images_dir}")

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="kr.or.cspi.mapper.ExamParsingMapper">
+
+    <select id="selectMaxExamId" resultType="int">
+        SELECT MAX(CAST(SUBSTRING(ce_id, 3, 3) AS UNSIGNED)) FROM cspi_exam
+    </select>
+
+    <insert id="insertExam">
+        INSERT INTO cspi_exam (ce_id, exam_no, ce_name, ce_exp, ce_year, ce_round, ce_date, file_group_no)
+        VALUES (#{ceId}, #{examNo}, #{ceName}, #{ceExp}, #{ceYear}, #{ceRound}, #{ceDate}, #{fileGroupNo})
+    </insert>
+
+    <insert id="insertQuestion">
+        INSERT INTO question (que_no, ce_id, que_sub, que_exp, que_file, que_score, que_answer, file_group_no, option_type)
+        VALUES (#{queNo}, #{ceId}, #{queSub}, #{queExp}, #{queFile}, #{queScore}, #{queAnswer}, #{fileGroupNo}, #{optionType})
+    </insert>
+
+    <insert id="insertOption">
+        INSERT INTO options (option_no, que_no, ce_id, option_content)
+        VALUES (#{optionNo}, #{queNo}, #{ceId}, #{optionContent})
+    </insert>
+    
+    <select id="getLastCeId" resultType="string">
+    	SELECT MAX(ce_id) 
+    	FROM cspi_exam
+	</select>
+		
+	<select id="getLastCeRound" resultType="int">
+	    SELECT MAX(ce_round)
+	    FROM cspi_exam
+	</select>
+
+</mapper>

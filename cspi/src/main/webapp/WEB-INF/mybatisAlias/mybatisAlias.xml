@@ -17,11 +17,13 @@
 		<typeAlias type="kr.or.ddit.vo.ExamVO" alias="examVO" />
 	</typeAliases> -->
 	<typeAliases>
-		<typeAlias type="kr.or.cspi.vo.MemberVO" alias="memberVO"/>
+		<package name="kr.or.cspi.vo"/> <!-- 얘 하나로 vo폴더 아래 파일 전부 적용 -->
+		<!-- <typeAlias type="kr.or.cspi.vo.MemberVO" alias="memberVO"/>
 		<typeAlias type="kr.or.cspi.vo.SignupVO" alias="signupVO"/>
 		<typeAlias type="kr.or.cspi.vo.AnswerSelectVO" alias="answerSelectVO"/>
 		<typeAlias type="kr.or.cspi.vo.CspiExamVO" alias="cspiExamVO"/>
 		<typeAlias type="kr.or.cspi.vo.QuestionVO" alias="questionVO"/>
+		<typeAlias type="kr.or.cspi.vo.OptionVO" alias="optionVO"/>
 		<typeAlias type="kr.or.cspi.vo.ScoreVO" alias="scoreVO"/>
 		<typeAlias type="kr.or.cspi.vo.SolutionVO" alias="solutionVO"/>
 		<typeAlias type="kr.or.cspi.vo.SubmitVO" alias="submitVO"/>
@@ -29,7 +31,7 @@
 		<typeAlias type="kr.or.cspi.vo.ExamVO" alias="examVO"/>
 		<typeAlias type="kr.or.cspi.vo.PwdChangeVO" alias="pwdchangeVO"/>
 		<typeAlias type="kr.or.cspi.vo.PositionVO" alias="positionVO"/>
-		<typeAlias type="kr.or.cspi.vo.DepartmentVO" alias="departmentVO"/>
+		<typeAlias type="kr.or.cspi.vo.DepartmentVO" alias="departmentVO"/>  -->
 	</typeAliases>
 </configuration>
 

@@ -9,7 +9,7 @@ public class CspiExamVO {
 	private String ceName;
 	private String ceExp;
 	private String ceYear;
-	private int ceRound;
+	private Integer ceRound;
 	private String ceDate;
 	private String fileGroupNo;
 	

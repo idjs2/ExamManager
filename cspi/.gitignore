@@ -18,3 +18,6 @@ Thumbs.db
 
 **/MANIFEST.MF
 **/pom.properties
+
+# Python env
+venv311/

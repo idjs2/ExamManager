@@ -2,9 +2,13 @@ from information_processing_exam_parser import InformationProcessingExamParser
 import sys
 import os
 
+sys.stdout.reconfigure(encoding='utf-8')
+sys.stderr.reconfigure(encoding='utf-8')
+
 pdf_path = sys.argv[1]
 pdf_path = os.path.abspath(pdf_path)  # 절대 경로로 변환
 pdf_path = pdf_path.replace("/", "\\")  # Windows용 백슬래시
+pdf_path = pdf_path.encode('utf-8').decode('utf-8')
 
 try:
     # PDF 파일 열기
